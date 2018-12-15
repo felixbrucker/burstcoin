@@ -1,0 +1,29 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+  configure)
+    if mysql -uburst -pburst -hlocalhost -e "\q" ; then
+    else
+	# DB and user do not exist yet, create it
+	mysql -uroot -hlocalhost << EOF
+CREATE DATABASE burst CHARACTER SET = 'utf8mb4' COLLATE = 'utf8mb4_unicode_ci';
+CREATE USER 'burst'@'localhost' IDENTIFIED BY 'burst'; 
+GRANT ALL PRIVILEGES ON burst.* TO 'burst'@'burst';
+EOF
+    fi
+    ;;
+
+  abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+  *)
+    echo "postinst called with unknown argument \`$1'" >&2
+    exit 1
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0
+
