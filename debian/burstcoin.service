@@ -1,0 +1,11 @@
+[Unit]
+Description=Burst Reference Software written in Java
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/burstcoin/burstcoin.sh
+
+[Install]
+WantedBy=multi-user.target
+
