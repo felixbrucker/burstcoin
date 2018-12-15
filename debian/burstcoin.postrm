@@ -8,7 +8,7 @@ case "$1" in
   purge)
     # Remove the user and db
     mysql -uroot -hlocalhost -e "DROP USER 'burst'@'localhost';DROP DATABASE burst;\q" > /dev/null 2>&1 || true
-    rm -f /var/log/burstcoin.log
+    rm -f /var/log/burstcoin.log*
     ;;
 
   remove|failed-upgrade|abort-install|abort-upgrade|disappear)

@@ -2,11 +2,12 @@ Source: burstcoin
 Maintainer: Felix Brucker <felix@felixbrucker.com>
 Section: misc
 Priority: optional
-Standards-Version: 3.9.2
+Standards-Version: 3.9.7
 Build-Depends: debhelper (>= 9), dh-systemd (>= 1.5), default-jdk-headless, maven
 
 Package: burstcoin
 Architecture: any
+Multi-Arch: same
 Depends: default-jre-headless, mariadb-server, ${misc:Depends}
 Description: Burst Reference Software written in Java
 

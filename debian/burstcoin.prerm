@@ -4,7 +4,9 @@ set -e
 case "$1" in
   remove|deconfigure)
     # systemd: On uninstall (not upgrade), disable and stop the unit
-    if [ -x /bin/systemctl ]; then
+    ret=0
+    systemctl --version > /dev/null 2>&1 || ret=$?
+    if [ $ret -eq 0 ]; then
       systemctl --no-reload disable burstcoin.service >/dev/null 2>&1 || true
       systemctl stop burstcoin.service >/dev/null 2>&1 || true
     fi

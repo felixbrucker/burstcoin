@@ -1,6 +1,6 @@
 conf/* etc/burstcoin/
 debian/conf/* etc/burstcoin/
-debian/burstcoin.sh /opt/burstcoin/
-burst.jar /opt/burstcoin/
-html/* /opt/burstcoin/html/
+debian/burstcoin.sh usr/share/burstcoin/
+burst.jar usr/share/burstcoin/
+html/* usr/share/burstcoin/html/
 
