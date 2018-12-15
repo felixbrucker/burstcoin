@@ -3,13 +3,14 @@ set -e
 
 case "$1" in
   configure)
-    if mysql -uburst -pburst -hlocalhost -e "\q" ; then
-    else
-	# DB and user do not exist yet, create it
-	mysql -uroot -hlocalhost << EOF
+    ret=0 # workaround set -e for failing commands
+    mysql -uburst -pburst -hlocalhost -e "\q" > /dev/null 2>&1 || ret=$?
+    if [[ $ret -ne 0 ]]; then
+        # DB and user do not exist yet, create it
+        mysql -uroot -hlocalhost << EOF
 CREATE DATABASE burst CHARACTER SET = 'utf8mb4' COLLATE = 'utf8mb4_unicode_ci';
-CREATE USER 'burst'@'localhost' IDENTIFIED BY 'burst'; 
-GRANT ALL PRIVILEGES ON burst.* TO 'burst'@'burst';
+CREATE USER 'burst'@'localhost' IDENTIFIED BY 'burst';
+GRANT ALL PRIVILEGES ON burst.* TO 'burst'@'localhost';
 EOF
     fi
     ;;
