@@ -5,7 +5,7 @@ case "$1" in
   configure)
     ret=0 # workaround set -e for failing commands
     mysql -uburst -pburst -hlocalhost -e "\q" > /dev/null 2>&1 || ret=$?
-    if [[ $ret -ne 0 ]]; then
+    if [ $ret -ne 0 ]; then
         # DB and user do not exist yet, create it
         mysql -uroot -hlocalhost << EOF
 CREATE DATABASE burst CHARACTER SET = 'utf8mb4' COLLATE = 'utf8mb4_unicode_ci';
