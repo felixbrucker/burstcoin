@@ -1,6 +1,6 @@
-burstcoin (2.2.6-1) UNRELEASED; urgency=medium
+burstcoin (2.2.6-1) bionic; urgency=medium
 
   * Initial release.
 
- -- felix <felix@felixbrucker.com>  Sat, 15 Dec 2018 15:29:42 +0000
+ -- Felix Brucker <felix@felixbrucker.com>  Sat, 15 Dec 2018 15:29:42 +0000
 

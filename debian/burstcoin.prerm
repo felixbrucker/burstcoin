@@ -12,7 +12,7 @@ case "$1" in
     fi
     ;;
 
-  failed-upgrade)
+  failed-upgrade|upgrade)
     ;;
 
   *)
